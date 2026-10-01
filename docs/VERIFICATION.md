@@ -7,13 +7,13 @@ was commit `9034e6956992c086087835a31c9f040b51775610`.
 
 Fresh history, public template publication, and release `v1.0.0` were approved
 before this verification. The source has no inherited product Git history.
-Hosted PostgreSQL and the container scan passed for commit
-`ea3433a1f7170610b01cfab4e321469a2f78f9f9`:
-[CI](https://github.com/zoe606/larabase/actions/runs/36887868641) and
-[PostgreSQL](https://github.com/zoe606/larabase/actions/runs/36887868723).
-The first run required a domain isolation dependency that was absent on the
-runner. The checker now uses standard shell tools. Publication waits for every
-CI gate to pass on the corrected commit.
+Hosted CI and PostgreSQL checks passed for commit
+`9576474247215f92d6e647ea5535d78a7e36bceb`:
+[CI](https://github.com/zoe606/larabase/actions/runs/36890127898) and
+[PostgreSQL](https://github.com/zoe606/larabase/actions/runs/36890127855).
+All gates passed, including coverage, PHPStan, Pint, frontend checks, dependency
+audits, domain isolation, OpenAPI drift, and the high/critical container scan.
+This report update changes documentation only.
 
 The release source excludes installed dependencies, local environments,
 databases, uploads, compiled assets, logs, caches, and the extraction marker.
