@@ -1,0 +1,16 @@
+<?php
+
+namespace App\Actions{{ namespace }};
+
+use App\Contracts\ActionInterface;
+use Illuminate\Support\Facades\DB;
+
+class {{ class }} implements ActionInterface
+{
+    public function handle(array $data): mixed
+    {
+        return DB::transaction(function () use ($data) {
+            // TODO: Implement action logic
+        });
+    }
+}

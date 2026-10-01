@@ -1,0 +1,103 @@
+# =============================================================================
+# Docker Ignore - Exclude files from build context
+# =============================================================================
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# IDE and editors
+.idea
+.vscode
+*.swp
+*.swo
+*~
+
+# Development files
+.env*
+!.env.example
+!.env.production.example
+.larabase-source
+
+# Node modules (rebuilt in container)
+node_modules
+
+# Vendor (rebuilt in container)
+vendor
+
+# Build artifacts (rebuilt in container)
+public/build
+public/hot
+
+# Testing
+tests
+phpunit.xml
+.phpunit.result.cache
+.phpunit.cache
+coverage
+.pest
+
+# Static analysis
+phpstan.neon
+phpstan.neon.dist
+.phpstan.cache
+
+# Code style
+.prettierrc
+.prettierignore
+eslint.config.js
+.editorconfig
+
+# Documentation
+*.md
+!README.md
+docs
+
+# CI/CD
+.github
+.gitlab-ci.yml
+.travis.yml
+Jenkinsfile
+
+# Docker files (not needed inside container)
+Dockerfile*
+docker-compose*.yml
+.dockerignore
+
+# Laravel specific
+storage/logs/*
+storage/framework/cache/*
+storage/framework/sessions/*
+storage/framework/views/*
+storage/framework/testing/*
+bootstrap/cache/*.php
+
+# Keep .gitkeep files
+!storage/logs/.gitkeep
+!storage/framework/cache/.gitkeep
+!storage/framework/sessions/.gitkeep
+!storage/framework/views/.gitkeep
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Scripts (for VPS host, not container)
+scripts
+
+# Misc
+.claude
+.husky
+CLAUDE.md
+
+# Local databases and uploaded files
+database/*.sqlite*
+storage/app/*

@@ -1,0 +1,15 @@
+<?php
+
+namespace App\Queries{{ namespace }};
+
+use App\Contracts\QueryInterface;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Collection;
+
+class {{ class }} implements QueryInterface
+{
+    public function handle(array $filters = []): LengthAwarePaginator|Collection
+    {
+        // TODO: Implement query logic
+    }
+}

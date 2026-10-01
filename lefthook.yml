@@ -1,0 +1,14 @@
+pre-commit:
+  parallel: true
+  commands:
+    pint:
+      glob: "*.php"
+      run: ./vendor/bin/pint --dirty --test
+    eslint:
+      glob: "*.{js,ts,jsx,tsx}"
+      run: pnpm run lint
+
+pre-push:
+  commands:
+    pest:
+      run: ./vendor/bin/pest

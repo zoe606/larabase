@@ -1,0 +1,27 @@
+includes:
+    - vendor/larastan/larastan/extension.neon
+
+parameters:
+    paths:
+        - app
+
+    level: 6
+
+    ignoreErrors:
+        # Spatie Permission - contract vs model return types
+        - '#should return Spatie\\Permission\\Models\\Permission but returns Spatie\\Permission\\Contracts\\Permission#'
+        - '#Access to an undefined property Spatie\\Permission\\Models\\Permission::\$group#'
+        # Spatie MediaLibrary - accessor properties
+        - '#Access to an undefined property Spatie\\MediaLibrary\\MediaCollections\\Models\\Media::\$humanReadableSize#'
+        - '#contains unresolvable type#'
+        # Collection/Pagination generic types - complex inference with traits
+        - '#return type with generic class Illuminate\\#'
+        - '#in generic type .* is not subtype of template type#'
+        - '#should return .* but returns Illuminate\\Database\\Eloquent\\Collection#'
+
+    excludePaths:
+        - app/Console/Commands/MakeActionCommand.php
+        - app/Console/Commands/MakeQueryCommand.php
+        - app/Console/Commands/MakeCrudCommand.php
+
+    reportUnmatchedIgnoredErrors: true
