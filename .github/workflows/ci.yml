@@ -168,9 +168,6 @@ jobs:
       - name: Validate Composer metadata
         run: composer validate --strict
 
-      - name: Install domain isolation dependency
-        run: sudo apt-get update && sudo apt-get install -y ripgrep
-
       - name: Check domain isolation
         run: bash .github/scripts/check-domain-isolation.sh
 

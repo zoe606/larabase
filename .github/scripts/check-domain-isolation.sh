@@ -10,8 +10,8 @@ for root in "${scan_roots[@]}"; do
     test -e "$root"
 done
 
-paths=$(rg --files "${scan_roots[@]}")
-if printf '%s\n' "$paths" | rg -n -i "$patterns"; then
+paths=$(find "${scan_roots[@]}" -type f)
+if printf '%s\n' "$paths" | grep -n -i -E "$patterns"; then
     echo 'product domain path found in Larabase' >&2
     exit 1
 else
@@ -19,7 +19,7 @@ else
     [[ "$status" -eq 1 ]] || exit "$status"
 fi
 
-if rg -n -i "$patterns" "${scan_roots[@]}"; then
+if grep -r -n -i -E -I "$patterns" "${scan_roots[@]}"; then
     echo 'product domain reference found in Larabase' >&2
     exit 1
 else

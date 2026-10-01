@@ -7,7 +7,13 @@ was commit `9034e6956992c086087835a31c9f040b51775610`.
 
 Fresh history, public template publication, and release `v1.0.0` were approved
 before this verification. The source has no inherited product Git history.
-Hosted GitHub Actions and the hosted container scan run after publication.
+Hosted PostgreSQL and the container scan passed for commit
+`ea3433a1f7170610b01cfab4e321469a2f78f9f9`:
+[CI](https://github.com/zoe606/larabase/actions/runs/36887868641) and
+[PostgreSQL](https://github.com/zoe606/larabase/actions/runs/36887868723).
+The first run required a domain isolation dependency that was absent on the
+runner. The checker now uses standard shell tools. Publication waits for every
+CI gate to pass on the corrected commit.
 
 The release source excludes installed dependencies, local environments,
 databases, uploads, compiled assets, logs, caches, and the extraction marker.
@@ -117,12 +123,14 @@ preview uses SQLite and built assets so it remains available independently.
 The Laravel 13 image build passed using OrbStack's container engine:
 
 ```text
-sha256:0bf55190e1f6d746a2025d4296abc786212f50cd6fc2c88971c0f1a1b3f9204a
+sha256:bdabcea733676784669899861d0e1c1859421bfae15e3f1586f24b2b35a9360d
 ```
 
 The application image is an optional deployment foundation. Local development
 uses Herd for PHP. Hosted vulnerability scan results are separate from this
-local build result.
+local build result. The first hosted run found outdated OS packages. The image
+now installs available OS security updates. The rerun passed the unchanged scan
+gate. Domain isolation uses standard shell tools without an extra runner package.
 
 ## Reproduce checks
 
