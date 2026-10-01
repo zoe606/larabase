@@ -86,8 +86,9 @@ RUN install-php-extensions \
     zip \
     exif
 
-# Install curl for health checks.
-RUN apt-get update && apt-get install -y --no-install-recommends \
+# Install available OS security updates and curl for health checks.
+RUN apt-get update && apt-get upgrade -y --no-install-recommends \
+    && apt-get install -y --no-install-recommends \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
