@@ -32,8 +32,10 @@ it('loads roles relationship', function () {
 });
 
 it('filters by search term on name', function () {
-    User::factory()->create(['name' => 'John Doe']);
-    User::factory()->create(['name' => 'Jane Smith']);
+    // Search also matches email, so fixed values keep a random Faker email
+    // such as "johnson@example.org" from matching "John".
+    User::factory()->create(['name' => 'John Doe', 'email' => 'doe@example.com']);
+    User::factory()->create(['name' => 'Jane Smith', 'email' => 'smith@example.com']);
 
     $result = $this->query->handle(['search' => 'John']);
 
