@@ -1,7 +1,7 @@
 import { DataTablePagination, DeleteConfirmation } from '@/components/shared';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
+import { SearchField } from '@/components/ui/search-field';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Separator } from '@/components/ui/separator';
 import AppLayout from '@/layouts/app-layout';
@@ -62,7 +62,7 @@ export default function PermissionIndex({ permissions, groups, filters }: Props)
                     <CardHeader className="flex flex-col gap-4 pb-3 md:flex-row md:items-center md:justify-between">
                         <div>
                             <CardTitle className="text-2xl font-bold">Permissions</CardTitle>
-                            <p className="text-muted-foreground text-sm">Manage system access permissions</p>
+                            <p className="text-on-surface-variant text-sm">Manage system access permissions</p>
                         </div>
                         <Link href="/permissions/create">
                             <Button>
@@ -76,16 +76,16 @@ export default function PermissionIndex({ permissions, groups, filters }: Props)
 
                     <CardContent className="space-y-6 pt-6">
                         {/* Filter */}
-                        <div className="flex flex-col gap-4 md:flex-row md:items-center">
-                            <Input
-                                type="text"
+                        <div className="flex flex-wrap items-center gap-2">
+                            <SearchField
                                 placeholder="Search permissions... (press Enter)"
                                 value={search}
                                 onChange={(e) => setSearch(e.target.value)}
                                 onKeyDown={handleSearchKey}
+                                className="w-full md:w-auto md:min-w-64 md:flex-1"
                             />
                             <Select value={filters.group || '__ALL__'} onValueChange={handleGroupChange}>
-                                <SelectTrigger className="md:w-64">
+                                <SelectTrigger variant="chip">
                                     <SelectValue placeholder="All Groups" />
                                 </SelectTrigger>
                                 <SelectContent>
@@ -102,12 +102,12 @@ export default function PermissionIndex({ permissions, groups, filters }: Props)
                         {/* List */}
                         <div className="space-y-3">
                             {permissions.data.length === 0 ? (
-                                <p className="text-muted-foreground text-center">No data available.</p>
+                                <p className="text-on-surface-variant text-center">No data available.</p>
                             ) : (
                                 permissions.data.map((permission) => (
                                     <div
                                         key={permission.id}
-                                        className="bg-muted/50 hover:bg-muted/70 flex items-center justify-between rounded-md border px-4 py-3 transition"
+                                        className="bg-surface-container-high/50 hover:bg-surface-container-high/70 flex items-center justify-between rounded-md border px-4 py-3 transition"
                                     >
                                         <div className="text-foreground text-sm font-medium">{permission.name}</div>
                                         <div className="flex items-center gap-2">
@@ -121,7 +121,7 @@ export default function PermissionIndex({ permissions, groups, filters }: Props)
                                                 description={`Permission ${permission.name} will be permanently deleted.`}
                                                 onConfirm={() => handleDelete(permission.id)}
                                             >
-                                                <Button variant="ghost" size="icon" className="text-destructive hover:text-red-600">
+                                                <Button variant="ghost" size="icon" className="text-destructive hover:text-error">
                                                     <Trash2 className="h-4 w-4" />
                                                 </Button>
                                             </DeleteConfirmation>

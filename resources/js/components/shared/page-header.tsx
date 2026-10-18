@@ -10,8 +10,8 @@ export function PageHeader({ title, description, action }: PageHeaderProps) {
     return (
         <div className="flex flex-col justify-between gap-4 md:flex-row md:items-center">
             <div>
-                <h1 className="text-2xl font-bold tracking-tight">{title}</h1>
-                {description && <p className="text-muted-foreground">{description}</p>}
+                <h2 className="text-2xl font-bold tracking-tight">{title}</h2>
+                {description && <p className="text-on-surface-variant">{description}</p>}
             </div>
             {action && <div className="w-full md:w-auto">{action}</div>}
         </div>

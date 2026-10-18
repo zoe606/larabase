@@ -74,7 +74,7 @@ export default function IconPicker({ value, onChange }: IconPickerProps) {
       </Popover>
 
       {SelectedIcon && (
-        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+        <div className="flex items-center gap-2 text-sm text-on-surface-variant">
           <SelectedIcon className="size-4" />
           {value}
         </div>

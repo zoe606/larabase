@@ -62,7 +62,7 @@ export default function BackupIndex({ backups }: Props) {
                     <CardHeader className="flex flex-row items-center justify-between">
                         <div>
                             <CardTitle className="text-2xl font-bold">Database Backups</CardTitle>
-                            <p className="text-muted-foreground text-sm">Manage system backup files</p>
+                            <p className="text-on-surface-variant text-sm">Manage system backup files</p>
                         </div>
                         <LoadingButton onClick={handleBackup} loading={isCreating}>
                             Create Backup
@@ -73,14 +73,14 @@ export default function BackupIndex({ backups }: Props) {
 
                     <CardContent className="space-y-4 pt-4">
                         {backups.length === 0 ? (
-                            <p className="text-muted-foreground text-center">No backups available.</p>
+                            <p className="text-on-surface-variant text-center">No backups available.</p>
                         ) : (
                             <ul className="space-y-2">
                                 {backups.map((backup, index) => (
-                                    <li key={index} className="bg-muted/50 flex items-center justify-between rounded border p-3">
+                                    <li key={index} className="bg-surface-container-high/50 flex items-center justify-between rounded border p-3">
                                         <div>
                                             <div className="font-medium">{backup.name}</div>
-                                            <div className="text-muted-foreground text-xs">
+                                            <div className="text-on-surface-variant text-xs">
                                                 {formatSize(backup.size)} • {new Date(backup.last_modified * 1000).toLocaleString()}
                                             </div>
                                         </div>

@@ -96,7 +96,7 @@ export default function MenuForm({ menu, parentMenus, permissions }: MenuFormPro
                 <Card className="mx-auto max-w-2xl lg:max-w-4xl">
                     <CardHeader className="pb-3">
                         <CardTitle className="text-2xl font-bold tracking-tight">{isEdit ? 'Edit Menu' : 'Add New Menu'}</CardTitle>
-                        <p className="text-muted-foreground text-sm">{isEdit ? 'Update menu details' : 'Create a new menu for the system'}</p>
+                        <p className="text-on-surface-variant text-sm">{isEdit ? 'Update menu details' : 'Create a new menu for the system'}</p>
                     </CardHeader>
 
                     <Separator />
@@ -110,7 +110,7 @@ export default function MenuForm({ menu, parentMenus, permissions }: MenuFormPro
                                         id="title"
                                         {...register('title')}
                                         placeholder="Example: Dashboard"
-                                        className={hasTitleError ? 'border-red-500' : ''}
+                                        className={hasTitleError ? 'border-error' : ''}
                                     />
                                     <FormError field="title" clientError={errors.title} />
                                 </div>
@@ -121,7 +121,7 @@ export default function MenuForm({ menu, parentMenus, permissions }: MenuFormPro
                                         id="route"
                                         {...register('route')}
                                         placeholder="Example: /dashboard"
-                                        className={hasRouteError ? 'border-red-500' : ''}
+                                        className={hasRouteError ? 'border-error' : ''}
                                     />
                                     <FormError field="route" clientError={errors.route} />
                                 </div>
@@ -138,7 +138,7 @@ export default function MenuForm({ menu, parentMenus, permissions }: MenuFormPro
                                         value={selectedParentId?.toString() ?? '_none'}
                                         onValueChange={(v) => setValue('parent_id', v === '_none' ? null : Number(v))}
                                     >
-                                        <SelectTrigger id="parent_id" className={hasParentIdError ? 'border-red-500' : ''}>
+                                        <SelectTrigger id="parent_id" className={hasParentIdError ? 'border-error' : ''}>
                                             <SelectValue placeholder="— None —" />
                                         </SelectTrigger>
                                         <SelectContent>

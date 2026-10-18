@@ -75,12 +75,7 @@ export function DatePicker({
     return (
         <Popover open={open} onOpenChange={setOpen}>
             <PopoverTrigger asChild>
-                <Button
-                    id={id}
-                    variant="outline"
-                    disabled={disabled}
-                    className={cn('w-full justify-start text-left font-normal', !value && 'text-muted-foreground', className)}
-                >
+                <Button id={id} variant="field" disabled={disabled} className={cn('text-left', !value && 'text-on-surface-variant', className)}>
                     <CalendarIcon className="mr-2 h-4 w-4" />
                     {displayValue ?? <span>{placeholder}</span>}
                 </Button>

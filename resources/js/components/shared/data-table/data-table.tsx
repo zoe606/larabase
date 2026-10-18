@@ -35,7 +35,7 @@ function SortIndicator<TData, TValue>({ column }: { column: Column<TData, TValue
     const sorted = column.getIsSorted();
 
     return (
-        <span className="text-muted-foreground/70 ml-1.5 inline-flex">
+        <span className="text-on-surface-variant/70 ml-1.5 inline-flex">
             {sorted === 'asc' ? (
                 <ChevronUp className="size-4" />
             ) : sorted === 'desc' ? (
@@ -68,11 +68,11 @@ function EmptyState({ message, description }: { message: string; description?: s
         <TableRow>
             <TableCell colSpan={100} className="h-48">
                 <div className="flex flex-col items-center justify-center text-center">
-                    <div className="bg-muted mb-3 rounded-full p-3">
-                        <Inbox className="text-muted-foreground size-6" />
+                    <div className="bg-surface-container-high mb-3 rounded-full p-3">
+                        <Inbox className="text-on-surface-variant size-6" />
                     </div>
                     <p className="text-foreground text-sm font-medium">{message}</p>
-                    {description && <p className="text-muted-foreground mt-1 text-sm">{description}</p>}
+                    {description && <p className="text-on-surface-variant mt-1 text-sm">{description}</p>}
                 </div>
             </TableCell>
         </TableRow>
@@ -133,7 +133,8 @@ export function DataTable<TData, TValue>({
                                         <TableHead
                                             key={header.id}
                                             className={cn(
-                                                header.column.getCanSort() && 'hover:bg-muted/50 cursor-pointer transition-colors select-none',
+                                                header.column.getCanSort() &&
+                                                    'hover:bg-surface-container-high/50 cursor-pointer transition-colors select-none',
                                             )}
                                             onClick={header.column.getToggleSortingHandler()}
                                         >
@@ -154,7 +155,7 @@ export function DataTable<TData, TValue>({
                                     <TableRow
                                         key={row.id}
                                         data-state={row.getIsSelected() && 'selected'}
-                                        className="hover:bg-muted/50 transition-colors"
+                                        className="hover:bg-surface-container-high/50 transition-colors"
                                     >
                                         {row.getVisibleCells().map((cell) => (
                                             <TableCell key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</TableCell>

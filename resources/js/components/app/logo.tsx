@@ -10,15 +10,13 @@ export default function AppLogo() {
     return (
         <div className="flex items-center gap-2">
             {logo ? (
-                <img src={`/storage/${logo}`} alt="Logo" className="h-8 w-8 rounded-md object-contain" />
+                <img src={`/storage/${logo}`} alt="Logo" className="rounded-shape-sm size-8 object-contain" />
             ) : (
-                <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-md">
-                    <AppLogoIcon className="size-[1.375rem] fill-current text-white dark:text-black" />
+                <div className="rounded-shape-sm bg-primary text-on-primary flex aspect-square size-8 items-center justify-center">
+                    <AppLogoIcon className="size-[1.375rem] fill-current" />
                 </div>
             )}
-            <div className="grid flex-1 text-left text-sm">
-                <span className="mb-0.5 truncate leading-none font-semibold">{appName}</span>
-            </div>
+            <span className="text-title-md text-on-surface truncate">{appName}</span>
         </div>
     );
 }

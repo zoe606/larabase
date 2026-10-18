@@ -1,4 +1,4 @@
-import { AppContent, AppShell, AppSidebar, AppSidebarHeader } from '@/components/app';
+import { AppContent, AppShell, AppSidebar, AppTopBar } from '@/components/app';
 import { SkipNavigation } from '@/components/shared/skip-navigation';
 import { Toaster } from '@/components/ui/sonner';
 import { type BreadcrumbItem } from '@/types';
@@ -37,9 +37,6 @@ export default function AppSidebarLayout({ children, breadcrumbs = [], title = '
         return () => unsubscribe();
     }, []);
 
-    const primaryColor = setting?.warna || '#0ea5e9';
-    const primaryForeground = '#ffffff';
-
     return (
         <>
             <SkipNavigation />
@@ -47,42 +44,15 @@ export default function AppSidebarLayout({ children, breadcrumbs = [], title = '
                 <title>{title ?? setting?.seo?.title ?? setting?.nama_app ?? 'Dashboard'}</title>
                 {setting?.seo?.description && <meta name="description" content={setting.seo.description} />}
                 {setting?.seo?.keywords && <meta name="keywords" content={setting.seo.keywords} />}
-                <style>
-                    {`
-            :root {
-              --primary: ${primaryColor};
-              --color-primary: ${primaryColor};
-              --primary-foreground: ${primaryForeground};
-              --color-primary-foreground: ${primaryForeground};
-            }
-            .dark {
-              --primary: ${primaryColor};
-              --color-primary: ${primaryColor};
-              --primary-foreground: ${primaryForeground};
-              --color-primary-foreground: ${primaryForeground};
-            }
-          `}
-                </style>
             </Head>
 
-            <div
-                style={
-                    {
-                        '--primary': primaryColor,
-                        '--primary-foreground': primaryForeground,
-                        '--color-primary': primaryColor,
-                        '--color-primary-foreground': primaryForeground,
-                    } as React.CSSProperties
-                }
-            >
-                <AppShell variant="sidebar">
-                    <AppSidebar />
-                    <AppContent variant="sidebar">
-                        <AppSidebarHeader breadcrumbs={breadcrumbs} />
-                        <main id="main-content">{children}</main>
-                    </AppContent>
-                </AppShell>
-            </div>
+            <AppShell variant="sidebar">
+                <AppSidebar />
+                <AppContent variant="sidebar">
+                    <AppTopBar breadcrumbs={breadcrumbs} />
+                    <main id="main-content">{children}</main>
+                </AppContent>
+            </AppShell>
 
             <Toaster />
         </>

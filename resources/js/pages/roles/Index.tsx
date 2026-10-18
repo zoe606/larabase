@@ -57,19 +57,19 @@ export default function RoleIndex({ roles }: Props) {
                 <div className="space-y-4">
                     {roles.length === 0 && (
                         <Card>
-                            <CardContent className="text-muted-foreground py-6 text-center">No role data available.</CardContent>
+                            <CardContent className="text-on-surface-variant py-6 text-center">No role data available.</CardContent>
                         </Card>
                     )}
 
                     {roles.map((role) => (
                         <Card key={role.id} className="border shadow-sm">
-                            <CardHeader className="bg-muted/40 space-y-2 border-b md:flex-row md:items-center md:justify-between md:space-y-0">
+                            <CardHeader className="bg-surface-container-high/40 space-y-2 border-b md:flex-row md:items-center md:justify-between md:space-y-0">
                                 <div className="space-y-1">
                                     <CardTitle className="flex items-center gap-2 text-base font-semibold">
                                         <ShieldCheck className="text-primary h-4 w-4" />
                                         {role.name}
                                     </CardTitle>
-                                    <div className="text-muted-foreground text-sm">
+                                    <div className="text-on-surface-variant text-sm">
                                         {role.permissions.length} permission
                                         {role.permissions.length > 1 ? 's' : ''}
                                     </div>
@@ -97,7 +97,7 @@ export default function RoleIndex({ roles }: Props) {
 
                             {role.permissions.length > 0 && (
                                 <CardContent className="pt-4">
-                                    <p className="text-muted-foreground mb-2 text-sm font-medium">Permissions:</p>
+                                    <p className="text-on-surface-variant mb-2 text-sm font-medium">Permissions:</p>
                                     <div className="flex flex-wrap gap-2">
                                         {role.permissions.map((permission) => (
                                             <Badge key={permission.id} variant="outline" className="border-muted text-xs font-normal">

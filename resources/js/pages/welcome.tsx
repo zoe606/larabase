@@ -17,11 +17,11 @@ export default function Welcome() {
     return (
         <>
             <Head title="Larabase" />
-            <main className="bg-background mx-auto min-h-screen max-w-5xl space-y-8 px-6 py-16">
-                <div className="space-y-4">
-                    <h1 className="text-4xl font-semibold">Larabase</h1>
-                    <p className="text-muted-foreground text-lg">A production-ready Laravel and React starter for your application.</p>
-                    <div className="flex gap-3">
+            <main className="bg-surface text-on-surface mx-auto flex min-h-screen max-w-5xl flex-col gap-8 px-4 py-16 sm:px-6">
+                <div className="flex flex-col gap-4">
+                    <h1 className="text-display-md">Larabase</h1>
+                    <p className="text-body-lg text-on-surface-variant">A production-ready Laravel and React starter for your application.</p>
+                    <div className="flex flex-wrap gap-3">
                         {auth.user ? (
                             <Button asChild>
                                 <Link href="/dashboard">Open dashboard</Link>

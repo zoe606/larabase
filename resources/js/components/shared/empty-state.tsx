@@ -58,17 +58,17 @@ export function EmptyState({ icon, title, description, variant, action, suggesti
 
     return (
         <div className={cn('flex flex-col items-center justify-center py-12 text-center', className)}>
-            <div className="bg-muted mb-4 rounded-full p-4">
-                <Icon className="text-muted-foreground h-8 w-8" />
+            <div className="bg-surface-container-high mb-4 rounded-full p-4">
+                <Icon className="text-on-surface-variant h-8 w-8" />
             </div>
             <h3 className="text-lg font-medium">{displayTitle}</h3>
-            {displayDescription && <p className="text-muted-foreground mt-1 max-w-sm text-sm">{displayDescription}</p>}
+            {displayDescription && <p className="text-on-surface-variant mt-1 max-w-sm text-sm">{displayDescription}</p>}
 
             {suggestions && suggestions.length > 0 && (
-                <ul className="text-muted-foreground mt-3 space-y-1 text-sm">
+                <ul className="text-on-surface-variant mt-3 space-y-1 text-sm">
                     {suggestions.map((suggestion, index) => (
                         <li key={index} className="flex items-center justify-center gap-1">
-                            <span className="text-muted-foreground/60">•</span>
+                            <span className="text-on-surface-variant/60">•</span>
                             {suggestion}
                         </li>
                     ))}

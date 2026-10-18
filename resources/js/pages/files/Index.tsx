@@ -77,17 +77,17 @@ function buildFolderTree(flat: FolderNode[]): (FolderNode & { children: FolderNo
 }
 
 function getFileIcon(mime: string) {
-    if (mime.startsWith('image/')) return <FileImage className="h-5 w-5 text-blue-500" />;
-    if (mime.startsWith('video/')) return <FileVideo className="h-5 w-5 text-purple-500" />;
-    if (mime.startsWith('audio/')) return <FileAudio className="h-5 w-5 text-pink-500" />;
+    if (mime.startsWith('image/')) return <FileImage className="text-info h-5 w-5" />;
+    if (mime.startsWith('video/')) return <FileVideo className="text-tertiary h-5 w-5" />;
+    if (mime.startsWith('audio/')) return <FileAudio className="text-tertiary h-5 w-5" />;
     if (mime.includes('zip') || mime.includes('rar') || mime.includes('tar') || mime.includes('7z'))
-        return <FileArchive className="h-5 w-5 text-yellow-500" />;
-    if (mime.includes('pdf')) return <FileText className="h-5 w-5 text-red-500" />;
-    if (mime.includes('text') || mime.includes('csv') || mime.includes('json')) return <FileText className="h-5 w-5 text-green-500" />;
-    if (mime.includes('word')) return <FileText className="h-5 w-5 text-blue-600" />;
-    if (mime.includes('excel') || mime.includes('sheet')) return <FileText className="h-5 w-5 text-green-600" />;
-    if (mime.includes('powerpoint') || mime.includes('presentation')) return <FileText className="h-5 w-5 text-orange-500" />;
-    return <File className="h-5 w-5 text-gray-500" />;
+        return <FileArchive className="text-warning h-5 w-5" />;
+    if (mime.includes('pdf')) return <FileText className="text-error h-5 w-5" />;
+    if (mime.includes('text') || mime.includes('csv') || mime.includes('json')) return <FileText className="text-success h-5 w-5" />;
+    if (mime.includes('word')) return <FileText className="text-info h-5 w-5" />;
+    if (mime.includes('excel') || mime.includes('sheet')) return <FileText className="text-success h-5 w-5" />;
+    if (mime.includes('powerpoint') || mime.includes('presentation')) return <FileText className="text-warning h-5 w-5" />;
+    return <File className="text-on-surface-variant h-5 w-5" />;
 }
 
 function isPreviewable(mime: string) {
@@ -188,13 +188,13 @@ export default function FileManager({ folders, currentFolderId, currentFolder, f
         return nodes.map((folder) => (
             <div key={folder.id} style={{ marginLeft: level * 12 }} className="mb-1">
                 <div
-                    className={`flex cursor-pointer items-center gap-1 rounded p-1 hover:bg-gray-100 ${currentFolderId === folder.id ? 'bg-gray-100' : ''}`}
+                    className={`hover:bg-surface-container flex cursor-pointer items-center gap-1 rounded p-1 ${currentFolderId === folder.id ? 'bg-surface-container' : ''}`}
                     onClick={() => router.visit(`/files?folder_id=${folder.id}`)}
                 >
-                    {folder.children.length > 0 && <ChevronRight className="h-4 w-4 text-gray-500" />}
+                    {folder.children.length > 0 && <ChevronRight className="text-on-surface-variant h-4 w-4" />}
                     {folder.children.length === 0 && <span className="h-4 w-4"></span>}
 
-                    <Folder className="h-4 w-4 text-yellow-500" />
+                    <Folder className="text-warning h-4 w-4" />
                     <span className="flex-1 truncate text-sm">{folder.name}</span>
 
                     <DeleteConfirmation
@@ -202,7 +202,12 @@ export default function FileManager({ folders, currentFolderId, currentFolder, f
                         description={`Folder "${folder.name}" and all its contents will be permanently deleted.`}
                         onConfirm={() => handleDeleteFolder(folder.id)}
                     >
-                        <Button variant="ghost" size="icon" className="h-6 w-6 text-gray-500 hover:text-red-500" onClick={(e) => e.stopPropagation()}>
+                        <Button
+                            variant="ghost"
+                            size="icon"
+                            className="text-on-surface-variant hover:text-error h-6 w-6"
+                            onClick={(e) => e.stopPropagation()}
+                        >
                             <Trash2 className="h-3 w-3" />
                         </Button>
                     </DeleteConfirmation>
@@ -217,7 +222,7 @@ export default function FileManager({ folders, currentFolderId, currentFolder, f
             <Head title="File Manager" />
             <div className="grid flex-1 grid-cols-1 gap-6 p-4 md:grid-cols-4 md:p-6">
                 {/* Sidebar Folder Tree */}
-                <div className="rounded-lg border bg-white p-4 md:col-span-1">
+                <div className="bg-surface-container-lowest rounded-lg border p-4 md:col-span-1">
                     <div className="mb-4 flex items-center justify-between">
                         <h2 className="text-sm font-semibold">Folder Structure</h2>
                         <Button variant="outline" size="sm" onClick={() => setIsCreatingFolder(true)} className="gap-1">
@@ -228,10 +233,10 @@ export default function FileManager({ folders, currentFolderId, currentFolder, f
 
                     <div className="max-h-[calc(100vh-250px)] overflow-y-auto">
                         <div
-                            className={`mb-2 flex cursor-pointer items-center gap-2 rounded p-2 hover:bg-gray-100 ${!currentFolderId ? 'bg-gray-100' : ''}`}
+                            className={`hover:bg-surface-container mb-2 flex cursor-pointer items-center gap-2 rounded p-2 ${!currentFolderId ? 'bg-surface-container' : ''}`}
                             onClick={() => router.visit('/files')}
                         >
-                            <FolderRoot className="h-4 w-4 text-blue-500" />
+                            <FolderRoot className="text-info h-4 w-4" />
                             <span className="text-sm font-medium">Root Folder</span>
                         </div>
                         {renderFolderTree(buildFolderTree(folders ?? []))}
@@ -244,7 +249,7 @@ export default function FileManager({ folders, currentFolderId, currentFolder, f
                         <div className="flex items-center gap-2">
                             <h2 className="text-lg font-semibold">{currentFolder ? currentFolder.name : 'Root Folder'}</h2>
                             {currentFolder && (
-                                <span className="text-sm text-gray-500">
+                                <span className="text-on-surface-variant text-sm">
                                     ({files.length} {files.length === 1 ? 'item' : 'items'})
                                 </span>
                             )}
@@ -261,7 +266,7 @@ export default function FileManager({ folders, currentFolderId, currentFolder, f
                     <Separator />
 
                     {files.length === 0 ? (
-                        <div className="flex h-64 flex-col items-center justify-center text-gray-500">
+                        <div className="text-on-surface-variant flex h-64 flex-col items-center justify-center">
                             <Folder className="mb-2 h-12 w-12" />
                             <p>No files in this folder</p>
                             <Button variant="ghost" size="sm" className="mt-2" onClick={() => fileInputRef.current?.click()}>
@@ -273,7 +278,7 @@ export default function FileManager({ folders, currentFolderId, currentFolder, f
                             {files.map((file) => (
                                 <div
                                     key={file.id}
-                                    className="group cursor-pointer rounded-lg border p-4 transition-colors hover:border-blue-500"
+                                    className="group hover:border-info cursor-pointer rounded-lg border p-4 transition-colors"
                                     onClick={() => (isPreviewable(file.mime_type) ? setPreviewFile(file) : null)}
                                 >
                                     <div className="flex items-start justify-between gap-3">
@@ -281,8 +286,8 @@ export default function FileManager({ folders, currentFolderId, currentFolder, f
                                             {getFileIcon(file.mime_type)}
                                             <div className="overflow-hidden">
                                                 <p className="truncate font-medium">{file.name}</p>
-                                                <p className="text-xs text-gray-500">{file.size}</p>
-                                                <p className="text-xs text-gray-500">{file.created_at}</p>
+                                                <p className="text-on-surface-variant text-xs">{file.size}</p>
+                                                <p className="text-on-surface-variant text-xs">{file.created_at}</p>
                                             </div>
                                         </div>
                                         <div className="flex gap-1 opacity-0 transition-opacity group-hover:opacity-100">
@@ -290,7 +295,7 @@ export default function FileManager({ folders, currentFolderId, currentFolder, f
                                                 href={file.url}
                                                 download={file.name}
                                                 onClick={(e) => e.stopPropagation()}
-                                                className="p-1 text-gray-500 hover:text-blue-500"
+                                                className="text-on-surface-variant hover:text-info p-1"
                                             >
                                                 <Download className="h-4 w-4" />
                                             </a>
@@ -299,7 +304,7 @@ export default function FileManager({ folders, currentFolderId, currentFolder, f
                                                 description={`File "${file.name}" will be permanently deleted.`}
                                                 onConfirm={() => handleDeleteFile(file.id)}
                                             >
-                                                <button className="p-1 text-gray-500 hover:text-red-500" onClick={(e) => e.stopPropagation()}>
+                                                <button className="text-on-surface-variant hover:text-error p-1" onClick={(e) => e.stopPropagation()}>
                                                     <Trash2 className="h-4 w-4" />
                                                 </button>
                                             </DeleteConfirmation>
@@ -351,14 +356,14 @@ export default function FileManager({ folders, currentFolderId, currentFolder, f
                                 ) : previewFile.mime_type.includes('pdf') ? (
                                     <iframe src={previewFile.url} className="h-[70vh] w-full rounded border" title={previewFile.name} />
                                 ) : previewFile.mime_type.startsWith('text/') ? (
-                                    <div className="h-[70vh] overflow-auto rounded bg-gray-100 p-4">
+                                    <div className="bg-surface-container h-[70vh] overflow-auto rounded p-4">
                                         <pre className="whitespace-pre-wrap">{/* Content would be loaded here */}</pre>
                                     </div>
                                 ) : (
-                                    <div className="flex h-64 flex-col items-center justify-center text-gray-500">
+                                    <div className="text-on-surface-variant flex h-64 flex-col items-center justify-center">
                                         <File className="mb-2 h-12 w-12" />
                                         <p>Preview not available</p>
-                                        <a href={previewFile.url} download={previewFile.name} className="mt-2 text-blue-500 hover:underline">
+                                        <a href={previewFile.url} download={previewFile.name} className="text-info mt-2 hover:underline">
                                             Download file
                                         </a>
                                     </div>

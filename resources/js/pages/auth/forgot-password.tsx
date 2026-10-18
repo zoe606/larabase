@@ -1,11 +1,11 @@
 // Components
 import { Head, useForm } from '@inertiajs/react';
-import { LoaderCircle } from 'lucide-react';
+import { LoaderCircle, Mail } from 'lucide-react';
 import { FormEventHandler } from 'react';
 
 import { InputError, TextLink } from '@/components/shared';
+import { IconInput } from '@/components/shared/icon-input';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import AuthLayout from '@/layouts/auth-layout';
 
@@ -28,7 +28,8 @@ export default function ForgotPassword({ status }: { status?: string }) {
                 <form onSubmit={submit}>
                     <div className="grid gap-2">
                         <Label htmlFor="email">Email address</Label>
-                        <Input
+                        <IconInput
+                            icon={Mail}
                             id="email"
                             type="email"
                             name="email"
@@ -49,10 +50,10 @@ export default function ForgotPassword({ status }: { status?: string }) {
                         </Button>
                     </div>
 
-                    {status && <div className="mb-4 text-center text-sm font-medium text-green-600">{status}</div>}
+                    {status && <div className="text-success mb-4 text-center text-sm font-medium">{status}</div>}
                 </form>
 
-                <div className="text-muted-foreground space-x-1 text-center text-sm">
+                <div className="text-on-surface-variant space-x-1 text-center text-sm">
                     <span>Or, return to</span>
                     <TextLink href={route('login')}>log in</TextLink>
                 </div>

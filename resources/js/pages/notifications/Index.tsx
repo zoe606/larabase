@@ -79,7 +79,7 @@ function NotificationItem({ notification, onMarkAsRead }: { notification: Notifi
         <div
             className={cn(
                 'group flex items-start gap-4 px-4 py-4 transition-colors',
-                'hover:bg-muted/50 cursor-pointer',
+                'hover:bg-surface-container-high/50 cursor-pointer',
                 !notification.is_read && 'bg-primary/5',
             )}
             onClick={handleClick}
@@ -96,10 +96,10 @@ function NotificationItem({ notification, onMarkAsRead }: { notification: Notifi
             <div
                 className={cn(
                     'flex h-10 w-10 shrink-0 items-center justify-center rounded-full',
-                    notification.is_read ? 'bg-muted' : 'bg-primary/10',
+                    notification.is_read ? 'bg-surface-container-high' : 'bg-primary/10',
                 )}
             >
-                <Icon className={cn('h-5 w-5', notification.is_read ? 'text-muted-foreground' : 'text-primary')} />
+                <Icon className={cn('h-5 w-5', notification.is_read ? 'text-on-surface-variant' : 'text-primary')} />
             </div>
 
             {/* Content */}
@@ -107,8 +107,8 @@ function NotificationItem({ notification, onMarkAsRead }: { notification: Notifi
                 <div className="flex items-start justify-between gap-2">
                     <div className="min-w-0 flex-1">
                         <p className={cn('truncate text-sm', !notification.is_read && 'font-semibold')}>{notification.title}</p>
-                        <p className="text-muted-foreground mt-0.5 line-clamp-2 text-sm">{notification.message}</p>
-                        <p className="text-muted-foreground mt-1 text-xs">{notification.time_ago}</p>
+                        <p className="text-on-surface-variant mt-0.5 line-clamp-2 text-sm">{notification.message}</p>
+                        <p className="text-on-surface-variant mt-1 text-xs">{notification.time_ago}</p>
                     </div>
 
                     {/* Mark as read button */}
@@ -209,7 +209,7 @@ export default function NotificationsIndex({ notifications, filters, unreadNotif
                                 <BellOff className="mr-2 h-4 w-4" />
                                 Unread
                                 {unreadNotificationCount > 0 && (
-                                    <span className="ml-2 rounded-full bg-red-500 px-1.5 py-0.5 text-xs text-white">
+                                    <span className="bg-error text-on-error ml-2 rounded-full px-1.5 py-0.5 text-xs">
                                         {unreadNotificationCount > 99 ? '99+' : unreadNotificationCount}
                                     </span>
                                 )}

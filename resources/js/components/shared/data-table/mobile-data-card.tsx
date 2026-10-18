@@ -39,7 +39,7 @@ export function MobileDataCard<TData, TValue>({ row, columns, mobileConfig }: Mo
     };
 
     return (
-        <Card className="hover:bg-muted/50 transition-colors">
+        <Card className="hover:bg-surface-container-high/50 transition-colors">
             <CardContent className="p-4">
                 <div className="flex items-start justify-between gap-3">
                     <div className="min-w-0 flex-1 space-y-2">
@@ -55,7 +55,7 @@ export function MobileDataCard<TData, TValue>({ row, columns, mobileConfig }: Mo
                                     const header = getColumnHeader(columnId);
                                     return (
                                         <div key={columnId} className="flex items-center gap-2 text-sm">
-                                            <span className="text-muted-foreground shrink-0">{header}:</span>
+                                            <span className="text-on-surface-variant shrink-0">{header}:</span>
                                             <span className="min-w-0">{cell}</span>
                                         </div>
                                     );
@@ -114,11 +114,11 @@ export function MobileDataCardList<TData, TValue>({
         return (
             <Card>
                 <CardContent className={cn('flex flex-col items-center justify-center py-12 text-center')}>
-                    <div className="bg-muted mb-3 rounded-full p-3">
-                        <Inbox className="text-muted-foreground size-6" />
+                    <div className="bg-surface-container-high mb-3 rounded-full p-3">
+                        <Inbox className="text-on-surface-variant size-6" />
                     </div>
                     <p className="text-foreground text-sm font-medium">{emptyMessage}</p>
-                    {emptyDescription && <p className="text-muted-foreground mt-1 text-sm">{emptyDescription}</p>}
+                    {emptyDescription && <p className="text-on-surface-variant mt-1 text-sm">{emptyDescription}</p>}
                 </CardContent>
             </Card>
         );

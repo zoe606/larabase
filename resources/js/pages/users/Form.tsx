@@ -110,7 +110,7 @@ export default function UserForm({ user, roles, currentRoles }: Props) {
                 <Card className="mx-auto max-w-3xl lg:max-w-5xl">
                     <CardHeader className="pb-3">
                         <CardTitle className="text-2xl font-bold tracking-tight">{isEdit ? 'Edit User' : 'Create New User'}</CardTitle>
-                        <p className="text-muted-foreground text-sm">{isEdit ? 'Update user data and roles' : 'Enter user data and set roles'}</p>
+                        <p className="text-on-surface-variant text-sm">{isEdit ? 'Update user data and roles' : 'Enter user data and set roles'}</p>
                     </CardHeader>
 
                     <Separator />
@@ -123,7 +123,7 @@ export default function UserForm({ user, roles, currentRoles }: Props) {
                                     <Label htmlFor="name" className="mb-2 block">
                                         Name
                                     </Label>
-                                    <Input id="name" placeholder="Full name" {...register('name')} className={hasNameError ? 'border-red-500' : ''} />
+                                    <Input id="name" placeholder="Full name" {...register('name')} className={hasNameError ? 'border-error' : ''} />
                                     <FormError field="name" clientError={errors.name} />
                                 </div>
 
@@ -136,7 +136,7 @@ export default function UserForm({ user, roles, currentRoles }: Props) {
                                         id="email"
                                         placeholder="Email address"
                                         {...register('email')}
-                                        className={hasEmailError ? 'border-red-500' : ''}
+                                        className={hasEmailError ? 'border-error' : ''}
                                     />
                                     <FormError field="email" clientError={errors.email} />
                                 </div>
@@ -152,7 +152,7 @@ export default function UserForm({ user, roles, currentRoles }: Props) {
                                             type="password"
                                             placeholder="••••••••"
                                             {...register('password')}
-                                            className={hasPasswordError ? 'border-red-500' : ''}
+                                            className={hasPasswordError ? 'border-error' : ''}
                                         />
                                         <FormError field="password" clientError={errors.password} />
                                     </div>
@@ -166,7 +166,7 @@ export default function UserForm({ user, roles, currentRoles }: Props) {
                                             type="password"
                                             placeholder="••••••••"
                                             {...register('password_confirmation')}
-                                            className={hasPasswordConfirmationError ? 'border-red-500' : ''}
+                                            className={hasPasswordConfirmationError ? 'border-error' : ''}
                                         />
                                         <FormError field="password_confirmation" clientError={errors.password_confirmation} />
                                     </div>
@@ -175,7 +175,7 @@ export default function UserForm({ user, roles, currentRoles }: Props) {
                                 {/* Roles */}
                                 <div>
                                     <Label className="mb-3 block">Roles</Label>
-                                    <div className={`space-y-3 rounded-lg border p-4 ${hasRolesError ? 'border-red-500' : ''}`}>
+                                    <div className={`space-y-3 rounded-lg border p-4 ${hasRolesError ? 'border-error' : ''}`}>
                                         {roles.map((role) => (
                                             <div key={role.id} className="flex items-center space-x-2">
                                                 <Checkbox

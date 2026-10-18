@@ -117,7 +117,7 @@ export default function RoleForm({ role, groupedPermissions }: Props) {
                 <Card className="mx-auto max-w-4xl lg:max-w-6xl">
                     <CardHeader className="pb-3">
                         <CardTitle className="text-2xl font-bold tracking-tight">{isEdit ? 'Edit Role' : 'Create New Role'}</CardTitle>
-                        <p className="text-muted-foreground text-sm">
+                        <p className="text-on-surface-variant text-sm">
                             {isEdit ? 'Update role details and permissions' : 'Create a new role and set permissions'}
                         </p>
                     </CardHeader>
@@ -135,7 +135,7 @@ export default function RoleForm({ role, groupedPermissions }: Props) {
                                         id="name"
                                         placeholder="Enter role name"
                                         {...register('name')}
-                                        className={useFieldError('name', errors.name) ? 'border-red-500' : ''}
+                                        className={useFieldError('name', errors.name) ? 'border-error' : ''}
                                     />
                                     <FormError field="name" clientError={errors.name} />
                                 </div>
@@ -145,7 +145,7 @@ export default function RoleForm({ role, groupedPermissions }: Props) {
                                 <div className="space-y-6">
                                     <div>
                                         <h2 className="text-lg font-semibold">Permissions</h2>
-                                        <p className="text-muted-foreground text-sm">Select permissions to grant to this role</p>
+                                        <p className="text-on-surface-variant text-sm">Select permissions to grant to this role</p>
                                     </div>
 
                                     <div className="space-y-4">
@@ -153,7 +153,7 @@ export default function RoleForm({ role, groupedPermissions }: Props) {
                                             const allChecked = perms.every((perm) => selectedPermissions.includes(perm.name));
 
                                             return (
-                                                <div key={group} className="bg-muted/20 rounded-lg border p-4">
+                                                <div key={group} className="bg-surface-container-high/20 rounded-lg border p-4">
                                                     <div className="mb-3 flex items-center gap-3">
                                                         <Checkbox
                                                             id={`group-${group}`}
@@ -162,7 +162,7 @@ export default function RoleForm({ role, groupedPermissions }: Props) {
                                                         />
                                                         <label
                                                             htmlFor={`group-${group}`}
-                                                            className="text-muted-foreground cursor-pointer text-sm font-medium tracking-wider uppercase"
+                                                            className="text-on-surface-variant cursor-pointer text-sm font-medium tracking-wider"
                                                         >
                                                             {group}
                                                         </label>

@@ -24,7 +24,7 @@ export default function SortableMenuItem({ id, title }: Props) {
             {...listeners}
             className="bg-background flex items-center gap-3 rounded border px-4 py-2 shadow-sm transition-shadow hover:shadow" // sesuaikan classname
         >
-            <GripVertical className="text-muted-foreground size-4" />
+            <GripVertical className="text-on-surface-variant size-4" />
             <span className="text-sm font-medium">{title}</span>
         </div>
     );

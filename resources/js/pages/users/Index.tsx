@@ -98,17 +98,17 @@ export default function UserIndex({ users }: Props) {
                         users.data.map((user) => (
                             <div
                                 key={user.id}
-                                className="hover:bg-muted/50 flex flex-col justify-between gap-4 px-4 py-5 transition md:flex-row md:items-center"
+                                className="hover:bg-surface-container-high/50 flex flex-col justify-between gap-4 px-4 py-5 transition md:flex-row md:items-center"
                             >
                                 {/* Avatar and Information */}
                                 <div className="flex flex-1 items-start gap-4">
-                                    <div className="bg-muted text-primary flex h-12 w-12 items-center justify-center rounded-full text-lg font-semibold">
+                                    <div className="bg-surface-container-high text-primary flex h-12 w-12 items-center justify-center rounded-full text-lg font-semibold">
                                         {getInitials(user.name)}
                                     </div>
                                     <div className="space-y-1">
                                         <div className="text-base font-medium">{user.name}</div>
-                                        <div className="text-muted-foreground text-sm">{user.email}</div>
-                                        <div className="text-muted-foreground text-xs italic">Registered {dayjs(user.created_at).fromNow()}</div>
+                                        <div className="text-on-surface-variant text-sm">{user.email}</div>
+                                        <div className="text-on-surface-variant text-xs italic">Registered {dayjs(user.created_at).fromNow()}</div>
                                         {user.roles.length > 0 && (
                                             <div className="mt-2 flex flex-wrap gap-1">
                                                 {user.roles.map((role) => (
@@ -141,7 +141,7 @@ export default function UserIndex({ users }: Props) {
                                                 <AlertDialogDescription>
                                                     Password for <strong>{user.name}</strong> will be reset to:
                                                     <br />
-                                                    <code className="bg-muted rounded px-2 py-1 text-sm">ResetPasswordNya</code>
+                                                    <code className="bg-surface-container-high rounded px-2 py-1 text-sm">ResetPasswordNya</code>
                                                 </AlertDialogDescription>
                                             </AlertDialogHeader>
                                             <AlertDialogFooter>
