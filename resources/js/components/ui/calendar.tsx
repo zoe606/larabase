@@ -27,10 +27,10 @@ function Calendar({ className, classNames, showOutsideDays = true, ...props }: C
                 ),
                 month_grid: 'w-full border-collapse space-y-1',
                 weekdays: 'flex',
-                weekday: 'text-muted-foreground rounded-md w-9 font-normal text-[0.8rem]',
+                weekday: 'text-on-surface-variant w-9 text-body-sm',
                 week: 'flex w-full mt-2',
                 day: cn(
-                    'relative p-0 text-center text-sm focus-within:relative focus-within:z-20 [&:has([aria-selected])]:bg-accent [&:has([aria-selected].day-outside)]:bg-accent/50 [&:has([aria-selected].day-range-end)]:rounded-r-md',
+                    'relative p-0 text-center text-sm focus-within:relative focus-within:z-20 [&:has([aria-selected])]:bg-secondary-container [&:has([aria-selected].day-outside)]:bg-secondary-container/50 [&:has([aria-selected].day-range-end)]:rounded-r-md',
                     props.mode === 'range'
                         ? '[&:has(>.day-range-end)]:rounded-r-md [&:has(>.day-range-start)]:rounded-l-md first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md'
                         : '[&:has([aria-selected])]:rounded-md',
@@ -42,12 +42,12 @@ function Calendar({ className, classNames, showOutsideDays = true, ...props }: C
                 range_end: 'day-range-end',
                 range_start: 'day-range-start',
                 selected:
-                    'bg-primary text-primary-foreground hover:bg-primary hover:text-primary-foreground focus:bg-primary focus:text-primary-foreground',
-                today: 'bg-accent text-accent-foreground',
+                    'rounded-full bg-primary text-on-primary hover:bg-primary focus:bg-primary',
+                today: 'rounded-full border border-primary text-primary',
                 outside:
-                    'day-outside text-muted-foreground aria-selected:bg-accent/50 aria-selected:text-muted-foreground',
-                disabled: 'text-muted-foreground opacity-50',
-                range_middle: 'aria-selected:bg-accent aria-selected:text-accent-foreground',
+                    'day-outside text-on-surface-variant aria-selected:bg-secondary-container/50 aria-selected:text-on-surface-variant',
+                disabled: 'text-on-surface-variant opacity-50',
+                range_middle: 'aria-selected:bg-secondary-container aria-selected:text-on-secondary-container',
                 hidden: 'invisible',
                 ...classNames,
             }}

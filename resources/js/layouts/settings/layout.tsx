@@ -31,7 +31,7 @@ function SettingsNav({ currentPath, onNavigate }: { currentPath: string; onNavig
                     variant="ghost"
                     asChild
                     className={cn('w-full justify-start', {
-                        'bg-muted': currentPath === item.url,
+                        'bg-surface-container-high': currentPath === item.url,
                     })}
                     onClick={onNavigate}
                 >

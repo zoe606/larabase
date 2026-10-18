@@ -88,7 +88,7 @@ export default function PermissionForm({ permission, groups = [] }: PermissionFo
                 <Card>
                     <CardHeader>
                         <CardTitle className="text-2xl font-bold">{isEdit ? 'Edit Permission' : 'Add Permission'}</CardTitle>
-                        <p className="text-muted-foreground text-sm">{isEdit ? 'Edit permission details' : 'Create a new permission'}</p>
+                        <p className="text-on-surface-variant text-sm">{isEdit ? 'Edit permission details' : 'Create a new permission'}</p>
                     </CardHeader>
 
                     <Separator />
@@ -102,7 +102,7 @@ export default function PermissionForm({ permission, groups = [] }: PermissionFo
                                     id="name"
                                     placeholder="example: manage-users"
                                     {...register('name')}
-                                    className={useFieldError('name', errors.name) ? 'border-red-500' : ''}
+                                    className={useFieldError('name', errors.name) ? 'border-error' : ''}
                                 />
                                 <FormError field="name" clientError={errors.name} />
                             </div>
@@ -111,7 +111,7 @@ export default function PermissionForm({ permission, groups = [] }: PermissionFo
                             <div className="space-y-2">
                                 <Label htmlFor="group">Select Group</Label>
                                 <Select value={selectedGroup || ''} onValueChange={(val) => setValue('group', val)}>
-                                    <SelectTrigger className={useFieldError('group', errors.group) ? 'border-red-500' : ''}>
+                                    <SelectTrigger className={useFieldError('group', errors.group) ? 'border-error' : ''}>
                                         <SelectValue placeholder="Select group..." />
                                     </SelectTrigger>
                                     <SelectContent>

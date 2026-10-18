@@ -123,20 +123,20 @@ export default function Profile({ mustVerifyEmail, status, profile }: Props) {
 
                             {mustVerifyEmail && auth.user.email_verified_at === null && (
                                 <div>
-                                    <p className="mt-2 text-sm text-gray-800 dark:text-gray-200">
+                                    <p className="text-on-surface mt-2 text-sm">
                                         Your email address is unverified.
                                         <Link
                                             href={route('verification.send')}
                                             method="post"
                                             as="button"
-                                            className="ml-1 rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:ring-2 focus:ring-offset-2 focus:outline-hidden dark:text-gray-400 dark:hover:text-gray-100"
+                                            className="text-on-surface-variant hover:text-on-surface ml-1 rounded-md text-sm underline focus:ring-2 focus:ring-offset-2 focus:outline-hidden"
                                         >
                                             Click here to re-send the verification email.
                                         </Link>
                                     </p>
 
                                     {status === 'verification-link-sent' && (
-                                        <div className="mt-2 text-sm font-medium text-green-600">
+                                        <div className="text-success mt-2 text-sm font-medium">
                                             A new verification link has been sent to your email address.
                                         </div>
                                     )}
@@ -307,7 +307,7 @@ export default function Profile({ mustVerifyEmail, status, profile }: Props) {
                                     leave="transition ease-in-out"
                                     leaveTo="opacity-0"
                                 >
-                                    <p className="text-sm text-gray-600 dark:text-gray-400">Saved</p>
+                                    <p className="text-on-surface-variant text-sm">Saved</p>
                                 </Transition>
                             </div>
                         </form>

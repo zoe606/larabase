@@ -1,6 +1,6 @@
 import '../css/app.css';
 
-import { createInertiaApp } from '@inertiajs/react';
+import { createInertiaApp, router } from '@inertiajs/react';
 import { configureEcho } from '@laravel/echo-react';
 import * as Sentry from '@sentry/react';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
@@ -8,7 +8,8 @@ import { createRoot } from 'react-dom/client';
 import { route as routeFn } from 'ziggy-js';
 
 import { ErrorBoundary } from '@/components/shared';
-import { initializeTheme } from './hooks/use-appearance';
+import type { SharedData } from '@/types';
+import { initializeTheme, setAppSeed } from './hooks/use-appearance';
 
 if (import.meta.env.VITE_SENTRY_DSN) {
     Sentry.init({
@@ -39,6 +40,9 @@ createInertiaApp({
     resolve: (name) =>
         resolvePageComponent(`./pages/${name}.tsx`, import.meta.glob(['./pages/**/*.tsx', '!./pages/**/*.test.tsx', '!./pages/**/*.spec.tsx'])),
     setup({ el, App, props }) {
+        initializeTheme((props.initialPage.props as Partial<SharedData>).setting?.warna);
+        router.on('navigate', (event) => setAppSeed((event.detail.page.props as Partial<SharedData>).setting?.warna));
+
         const root = createRoot(el);
 
         root.render(
@@ -48,9 +52,6 @@ createInertiaApp({
         );
     },
     progress: {
-        color: '#4B5563',
+        color: 'var(--md-primary)',
     },
 });
-
-// This will set light / dark mode on load...
-initializeTheme();

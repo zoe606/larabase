@@ -39,6 +39,9 @@ importers:
       '@laravel/echo-react':
         specifier: ^2.5.0
         version: 2.5.0(pusher-js@8.4.0)(react@19.2.3)(socket.io-client@4.8.3)
+      '@material/material-color-utilities':
+        specifier: 0.4.0
+        version: 0.4.0
       '@radix-ui/react-alert-dialog':
         specifier: ^1.1.14
         version: 1.1.15(@types/react-dom@19.2.3(@types/react@19.2.7))(@types/react@19.2.7)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -723,6 +726,9 @@ packages:
         optional: true
       socket.io-client:
         optional: true
+
+  '@material/material-color-utilities@0.4.0':
+    resolution: {integrity: sha512-dlq6VExJReb8dhjj3a/yTigr3ncNwoFmL5Iy2ENtbDX03EmNeOEdZ+vsaGrj7RTuO+mB7L58II4LCsl4NpM8uw==}
 
   '@napi-rs/lzma-linux-x64-gnu@1.5.1':
     resolution: {integrity: sha512-oTXEIha4SsuXdTA4Iyskj0kpdx2yVXdhd75c2v3xGrHFfVMsbhTPZU/nMPL4sWKo4pBHm3aucLaqGlF696dTyQ==}
@@ -4038,6 +4044,8 @@ snapshots:
     optionalDependencies:
       pusher-js: 8.4.0
       socket.io-client: 4.8.3
+
+  '@material/material-color-utilities@0.4.0': {}
 
   '@napi-rs/lzma-linux-x64-gnu@1.5.1':
     optional: true

@@ -15,10 +15,10 @@ interface ResetFiltersProps {
     className?: string;
 }
 
-export function ResetFilters({ onReset, variant = 'outline', size = 'default', showLabel = true, className }: ResetFiltersProps) {
+export function ResetFilters({ onReset, variant = 'ghost', size = 'sm', showLabel = true, className }: ResetFiltersProps) {
     return (
         <Button type="button" variant={variant} size={size} onClick={onReset} className={cn('shrink-0', className)}>
-            <RotateCcw className={showLabel ? 'mr-2 h-4 w-4' : 'h-4 w-4'} />
+            <RotateCcw />
             {showLabel && 'Reset'}
         </Button>
     );

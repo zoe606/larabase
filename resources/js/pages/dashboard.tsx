@@ -25,15 +25,15 @@ export default function Dashboard({ platform }: DashboardProps) {
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="Dashboard" />
-            <div className="space-y-6 p-4 md:p-6">
-                <h1 className="text-2xl font-semibold">Platform overview</h1>
-                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="flex flex-col gap-4 p-4 md:gap-6 md:p-6">
+                <h2 className="text-headline-sm">Platform overview</h2>
+                <div className="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-4">
                     {counts.map(({ label, value }) => (
                         <Card key={label}>
                             <CardHeader>
                                 <CardTitle>{label}</CardTitle>
                             </CardHeader>
-                            <CardContent className="text-3xl font-semibold">{value}</CardContent>
+                            <CardContent className="text-display-sm">{value}</CardContent>
                         </Card>
                     ))}
                 </div>

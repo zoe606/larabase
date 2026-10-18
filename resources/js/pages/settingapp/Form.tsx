@@ -10,6 +10,7 @@ import { type BreadcrumbItem } from '@/types';
 import { Head, useForm } from '@inertiajs/react';
 import React, { useRef } from 'react';
 
+// md3-exception: colour input default
 const DEFAULT_WARNA = '#181818';
 
 interface SettingApp {
@@ -35,7 +36,8 @@ export default function SettingForm({ setting }: Props) {
     const { data, setData, post, processing, errors } = useForm({
         nama_app: setting?.nama_app || '',
         deskripsi: setting?.deskripsi || '',
-        warna: setting?.warna || '#0ea5e9',
+        // md3-exception: colour input default
+        warna: setting?.warna || '#006a60',
         seo: {
             title: setting?.seo?.title || '',
             description: setting?.seo?.description || '',
@@ -63,7 +65,7 @@ export default function SettingForm({ setting }: Props) {
                 <Card className="mx-auto max-w-3xl lg:max-w-5xl">
                     <CardHeader>
                         <CardTitle className="text-2xl font-bold tracking-tight">Application Settings</CardTitle>
-                        <p className="text-muted-foreground mt-1 text-sm">Configure application identity, theme color, logo, and SEO metadata.</p>
+                        <p className="text-on-surface-variant mt-1 text-sm">Configure application identity, theme color, logo, and SEO metadata.</p>
                     </CardHeader>
                     <Separator />
                     <CardContent className="pt-6">
@@ -75,9 +77,9 @@ export default function SettingForm({ setting }: Props) {
                                     id="nama_app"
                                     value={data.nama_app}
                                     onChange={(e) => setData('nama_app', e.target.value)}
-                                    className={errors.nama_app ? 'border-red-500' : ''}
+                                    className={errors.nama_app ? 'border-error' : ''}
                                 />
-                                {errors.nama_app && <p className="text-sm text-red-500">{errors.nama_app}</p>}
+                                {errors.nama_app && <p className="text-error text-sm">{errors.nama_app}</p>}
                             </div>
 
                             {/* Deskripsi */}

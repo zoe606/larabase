@@ -46,7 +46,7 @@ export function DataTablePagination({ pagination }: DataTablePaginationProps) {
         <div className="flex flex-col items-center justify-between gap-4 px-2 sm:flex-row">
             <div className="flex items-center gap-4">
                 <div className="flex items-center gap-2">
-                    <span className="text-muted-foreground text-sm">Show</span>
+                    <span className="text-on-surface-variant text-sm">Show</span>
                     <Select value={String(per_page)} onValueChange={handlePerPageChange}>
                         <SelectTrigger className="h-8 w-[70px]">
                             <SelectValue />
@@ -59,9 +59,9 @@ export function DataTablePagination({ pagination }: DataTablePaginationProps) {
                             ))}
                         </SelectContent>
                     </Select>
-                    <span className="text-muted-foreground text-sm">entries</span>
+                    <span className="text-on-surface-variant text-sm">entries</span>
                 </div>
-                <div className="text-muted-foreground hidden text-sm sm:block">
+                <div className="text-on-surface-variant hidden text-sm sm:block">
                     Page {current_page} of {last_page} ({total} items)
                 </div>
             </div>
@@ -104,7 +104,7 @@ export function DataTablePagination({ pagination }: DataTablePaginationProps) {
 
                         if (isEllipsis) {
                             return (
-                                <span key={`ellipsis-${index}`} className="text-muted-foreground px-2">
+                                <span key={`ellipsis-${index}`} className="text-on-surface-variant px-2">
                                     ...
                                 </span>
                             );

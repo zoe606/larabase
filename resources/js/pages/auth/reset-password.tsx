@@ -1,10 +1,10 @@
 import { Head, useForm } from '@inertiajs/react';
-import { LoaderCircle } from 'lucide-react';
+import { LoaderCircle, Mail } from 'lucide-react';
 import { FormEventHandler } from 'react';
 
 import { InputError } from '@/components/shared';
+import { IconInput, PasswordInput } from '@/components/shared/icon-input';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import AuthLayout from '@/layouts/auth-layout';
 
@@ -43,7 +43,8 @@ export default function ResetPassword({ token, email }: ResetPasswordProps) {
                 <div className="grid gap-6">
                     <div className="grid gap-2">
                         <Label htmlFor="email">Email</Label>
-                        <Input
+                        <IconInput
+                            icon={Mail}
                             id="email"
                             type="email"
                             name="email"
@@ -58,9 +59,8 @@ export default function ResetPassword({ token, email }: ResetPasswordProps) {
 
                     <div className="grid gap-2">
                         <Label htmlFor="password">Password</Label>
-                        <Input
+                        <PasswordInput
                             id="password"
-                            type="password"
                             name="password"
                             autoComplete="new-password"
                             value={data.password}
@@ -74,9 +74,8 @@ export default function ResetPassword({ token, email }: ResetPasswordProps) {
 
                     <div className="grid gap-2">
                         <Label htmlFor="password_confirmation">Confirm password</Label>
-                        <Input
+                        <PasswordInput
                             id="password_confirmation"
-                            type="password"
                             name="password_confirmation"
                             autoComplete="new-password"
                             value={data.password_confirmation}

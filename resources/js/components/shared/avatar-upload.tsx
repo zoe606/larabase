@@ -86,14 +86,12 @@ export function AvatarUpload({ name, avatarUrl, uploadRoute, deleteRoute, classN
                 <Avatar className={cn(sizeClasses[size], 'border-muted border-2')}>
                     {isLoading ? (
                         <AvatarFallback>
-                            <Loader2 className="text-muted-foreground h-8 w-8 animate-spin" />
+                            <Loader2 className="text-on-surface-variant h-8 w-8 animate-spin" />
                         </AvatarFallback>
                     ) : (
                         <>
                             <AvatarImage src={avatarUrl || undefined} alt={name} />
-                            <AvatarFallback className="bg-neutral-200 text-lg text-black dark:bg-neutral-700 dark:text-white">
-                                {getInitials(name)}
-                            </AvatarFallback>
+                            <AvatarFallback className="bg-surface-container-high text-on-surface text-lg">{getInitials(name)}</AvatarFallback>
                         </>
                     )}
                 </Avatar>
@@ -153,7 +151,7 @@ export function AvatarUpload({ name, avatarUrl, uploadRoute, deleteRoute, classN
                 )}
             </div>
 
-            <p className="text-muted-foreground text-xs">Allowed: JPEG, PNG, WebP. Max size: 2MB</p>
+            <p className="text-on-surface-variant text-xs">Allowed: JPEG, PNG, WebP. Max size: 2MB</p>
 
             <DeleteConfirmation
                 isOpen={showDeleteConfirm}

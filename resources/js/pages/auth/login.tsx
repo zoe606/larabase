@@ -1,11 +1,11 @@
 import { Head, useForm } from '@inertiajs/react';
-import { LoaderCircle } from 'lucide-react';
+import { LoaderCircle, Mail } from 'lucide-react';
 import { FormEventHandler } from 'react';
 
 import { InputError, TextLink } from '@/components/shared';
+import { IconInput, PasswordInput } from '@/components/shared/icon-input';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
-import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import AuthLayout from '@/layouts/auth-layout';
 
@@ -35,14 +35,15 @@ export default function Login({ status, canResetPassword }: LoginProps) {
     };
 
     return (
-        <AuthLayout title="Welcome back" description="Sign in to manage your finances">
+        <AuthLayout title="Welcome back" description="Sign in to your account">
             <Head title="Log in" />
 
             <form className="flex flex-col gap-6" onSubmit={submit}>
                 <div className="grid gap-6">
                     <div className="grid gap-2">
                         <Label htmlFor="email">Email address</Label>
-                        <Input
+                        <IconInput
+                            icon={Mail}
                             id="email"
                             type="email"
                             required
@@ -65,9 +66,8 @@ export default function Login({ status, canResetPassword }: LoginProps) {
                                 </TextLink>
                             )}
                         </div>
-                        <Input
+                        <PasswordInput
                             id="password"
-                            type="password"
                             required
                             tabIndex={2}
                             autoComplete="current-password"
@@ -95,7 +95,7 @@ export default function Login({ status, canResetPassword }: LoginProps) {
                     </Button>
                 </div>
 
-                <div className="text-muted-foreground text-center text-sm">
+                <div className="text-on-surface-variant text-center text-sm">
                     Don't have an account?{' '}
                     <TextLink href={route('register')} tabIndex={5}>
                         Sign up
@@ -103,7 +103,7 @@ export default function Login({ status, canResetPassword }: LoginProps) {
                 </div>
             </form>
 
-            {status && <div className="mb-4 text-center text-sm font-medium text-green-600">{status}</div>}
+            {status && <div className="text-success mb-4 text-center text-sm font-medium">{status}</div>}
         </AuthLayout>
     );
 }

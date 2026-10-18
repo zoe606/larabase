@@ -1,10 +1,10 @@
 import { Head, useForm } from '@inertiajs/react';
-import { LoaderCircle } from 'lucide-react';
+import { LoaderCircle, Mail, User } from 'lucide-react';
 import { FormEventHandler } from 'react';
 
 import { InputError, TextLink } from '@/components/shared';
+import { IconInput, PasswordInput } from '@/components/shared/icon-input';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import AuthLayout from '@/layouts/auth-layout';
 
@@ -31,13 +31,14 @@ export default function Register() {
     };
 
     return (
-        <AuthLayout title="Create your account" description="Start managing your finances in minutes">
+        <AuthLayout title="Create your account" description="Enter your details to get started">
             <Head title="Register" />
             <form className="flex flex-col gap-6" onSubmit={submit}>
                 <div className="grid gap-6">
                     <div className="grid gap-2">
                         <Label htmlFor="name">Name</Label>
-                        <Input
+                        <IconInput
+                            icon={User}
                             id="name"
                             type="text"
                             required
@@ -54,7 +55,8 @@ export default function Register() {
 
                     <div className="grid gap-2">
                         <Label htmlFor="email">Email address</Label>
-                        <Input
+                        <IconInput
+                            icon={Mail}
                             id="email"
                             type="email"
                             required
@@ -70,9 +72,8 @@ export default function Register() {
 
                     <div className="grid gap-2">
                         <Label htmlFor="password">Password</Label>
-                        <Input
+                        <PasswordInput
                             id="password"
-                            type="password"
                             required
                             tabIndex={3}
                             autoComplete="new-password"
@@ -86,9 +87,8 @@ export default function Register() {
 
                     <div className="grid gap-2">
                         <Label htmlFor="password_confirmation">Confirm password</Label>
-                        <Input
+                        <PasswordInput
                             id="password_confirmation"
-                            type="password"
                             required
                             tabIndex={4}
                             autoComplete="new-password"
@@ -106,7 +106,7 @@ export default function Register() {
                     </Button>
                 </div>
 
-                <div className="text-muted-foreground text-center text-sm">
+                <div className="text-on-surface-variant text-center text-sm">
                     Already have an account?{' '}
                     <TextLink href={route('login')} tabIndex={6}>
                         Log in

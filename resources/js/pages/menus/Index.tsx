@@ -125,7 +125,7 @@ export default function MenuIndex({ menuItems }: Props) {
                     >
                         <div className="flex flex-1 items-center gap-2">
                             {hasChildren ? (
-                                <button onClick={() => toggleExpand(menu.id)} className="text-muted-foreground hover:text-primary transition">
+                                <button onClick={() => toggleExpand(menu.id)} className="text-on-surface-variant hover:text-primary transition">
                                     {isExpanded ? <ChevronDown className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
                                 </button>
                             ) : (
@@ -137,7 +137,7 @@ export default function MenuIndex({ menuItems }: Props) {
 
                         <div className="flex items-center gap-1">
                             <Link href={`/menus/${menu.id}/edit`}>
-                                <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-primary">
+                                <Button variant="ghost" size="icon" className="text-on-surface-variant hover:text-primary">
                                     <Edit className="h-4 w-4" />
                                 </Button>
                             </Link>
@@ -146,7 +146,7 @@ export default function MenuIndex({ menuItems }: Props) {
                                 description={`This will permanently delete the menu "${menu.title}".`}
                                 onConfirm={() => handleDelete(menu.id)}
                             >
-                                <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-destructive">
+                                <Button variant="ghost" size="icon" className="text-on-surface-variant hover:text-destructive">
                                     <Trash2 className="h-4 w-4" />
                                 </Button>
                             </DeleteConfirmation>
@@ -177,7 +177,7 @@ export default function MenuIndex({ menuItems }: Props) {
                         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
                             <div>
                                 <CardTitle className="text-2xl font-bold tracking-tight">Menu Management</CardTitle>
-                                <p className="text-muted-foreground text-sm">Drag & drop to reorder main menus and submenus</p>
+                                <p className="text-on-surface-variant text-sm">Drag & drop to reorder main menus and submenus</p>
                             </div>
                             <div className="flex items-center gap-3">
                                 <LoadingButton onClick={handleSave} loading={isSaving}>
@@ -199,7 +199,7 @@ export default function MenuIndex({ menuItems }: Props) {
                     <CardContent className="pt-6">
                         {menus.length === 0 ? (
                             <div className="flex flex-col items-center justify-center py-12 text-center">
-                                <p className="text-muted-foreground mb-4">No menus available</p>
+                                <p className="text-on-surface-variant mb-4">No menus available</p>
                                 <Link href="/menus/create">
                                     <Button>
                                         <Plus className="mr-2 h-4 w-4" />

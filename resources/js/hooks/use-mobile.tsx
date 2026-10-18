@@ -19,3 +19,20 @@ export function useIsMobile() {
 
     return isMobile;
 }
+
+const DESKTOP_BREAKPOINT = 1024;
+
+const isTabletWidth = () => typeof window !== 'undefined' && window.innerWidth >= MOBILE_BREAKPOINT && window.innerWidth < DESKTOP_BREAKPOINT;
+
+/** True between the mobile and desktop breakpoints, where the navigation drawer shows as a rail. */
+export function useIsTablet() {
+    const [isTablet, setIsTablet] = useState<boolean>(isTabletWidth);
+
+    useEffect(() => {
+        const onResize = () => setIsTablet(isTabletWidth());
+        window.addEventListener('resize', onResize);
+        return () => window.removeEventListener('resize', onResize);
+    }, []);
+
+    return isTablet;
+}

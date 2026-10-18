@@ -40,7 +40,7 @@ export default function AuditLogIndex({ logs }: Props) {
                 <Card>
                     <CardHeader className="pb-3">
                         <CardTitle className="text-2xl font-bold">Audit Log</CardTitle>
-                        <p className="text-muted-foreground text-sm">User activity history in the system</p>
+                        <p className="text-on-surface-variant text-sm">User activity history in the system</p>
                     </CardHeader>
 
                     <Separator />
@@ -48,17 +48,20 @@ export default function AuditLogIndex({ logs }: Props) {
                     <CardContent className="space-y-4 pt-6">
                         {/* List Logs */}
                         {logs.data.length === 0 ? (
-                            <p className="text-muted-foreground text-center">No activity logs.</p>
+                            <p className="text-on-surface-variant text-center">No activity logs.</p>
                         ) : (
                             logs.data.map((log) => (
-                                <div key={log.id} className="bg-muted/50 hover:bg-muted/70 rounded-md border px-4 py-3 transition">
+                                <div
+                                    key={log.id}
+                                    className="bg-surface-container-high/50 hover:bg-surface-container-high/70 rounded-md border px-4 py-3 transition"
+                                >
                                     <div className="text-foreground text-sm font-medium">{log.description}</div>
-                                    <div className="text-muted-foreground text-xs">
+                                    <div className="text-on-surface-variant text-xs">
                                         {log.causer?.name ?? 'System'} • {new Date(log.created_at).toLocaleString()}
                                         {log.subject_type ? ` • ${log.subject_type.split('\\').pop()}` : ''}
                                     </div>
                                     {log.properties && Object.keys(log.properties).length > 0 && (
-                                        <pre className="bg-muted mt-2 max-h-48 overflow-auto rounded p-2 text-xs">
+                                        <pre className="bg-surface-container-high mt-2 max-h-48 overflow-auto rounded p-2 text-xs">
                                             {JSON.stringify(log.properties, null, 2)}
                                         </pre>
                                     )}

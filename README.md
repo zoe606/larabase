@@ -67,6 +67,11 @@ perform reads. Policies enforce access. See [Architecture](docs/ARCHITECTURE.md)
 Sanctum bearer-token authentication, standard response envelopes, pagination,
 health endpoints, and generated OpenAPI. See [API](docs/API.md).
 
+## Design System
+
+The frontend uses Material Design 3. Light and dark colour schemes are generated
+from one seed colour. See [Design System](docs/DESIGN-SYSTEM.md).
+
 ## Deployment
 
 PostgreSQL, Redis, queue workers, scheduler, Reverb, and optional application

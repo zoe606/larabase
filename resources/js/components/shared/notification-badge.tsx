@@ -10,18 +10,18 @@ export function NotificationBadge() {
         <Link
             href="/notifications"
             className={cn(
-                'relative inline-flex items-center justify-center rounded-md p-2',
-                'text-muted-foreground hover:bg-accent hover:text-accent-foreground',
-                'transition-colors duration-200',
-                hasUnread && 'text-foreground',
+                'state-layer rounded-shape-full text-on-surface-variant relative inline-flex size-10 items-center justify-center',
+                'focus-visible:outline-ring focus-visible:outline-2 focus-visible:outline-offset-2',
+                hasUnread && 'text-on-surface',
             )}
             title="Notifications"
+            aria-label={hasUnread ? `Notifications, ${unreadNotificationCount} unread` : 'Notifications'}
         >
-            <Bell className={cn('size-5 transition-transform', hasUnread && 'animate-[wiggle_0.5s_ease-in-out]')} />
+            <Bell className={cn('size-6 transition-transform', hasUnread && 'animate-[wiggle_0.5s_ease-in-out]')} />
             {hasUnread && (
-                <span className="absolute -top-0.5 -right-0.5 flex size-5 items-center justify-center">
-                    <span className="bg-destructive/40 absolute inline-flex size-full animate-ping rounded-full" />
-                    <span className="bg-destructive text-destructive-foreground relative inline-flex size-5 items-center justify-center rounded-full text-[10px] font-bold">
+                <span className="absolute top-1 right-1 flex h-4 min-w-4 items-center justify-center">
+                    <span className="rounded-shape-full bg-error/40 absolute inline-flex size-full animate-ping" />
+                    <span className="rounded-shape-full bg-error text-label-sm text-on-error relative inline-flex h-4 min-w-4 items-center justify-center px-1">
                         {unreadNotificationCount > 99 ? '99+' : unreadNotificationCount}
                     </span>
                 </span>

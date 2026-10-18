@@ -68,15 +68,15 @@ export class ErrorBoundary extends Component<Props, State> {
                         <AlertTriangle className="text-destructive h-8 w-8" />
                     </div>
                     <h2 className="mb-2 text-xl font-semibold">Something went wrong</h2>
-                    <p className="text-muted-foreground mb-6 max-w-md text-center text-sm">
+                    <p className="text-on-surface-variant mb-6 max-w-md text-center text-sm">
                         An unexpected error occurred. Please try refreshing the page or contact support if the problem persists.
                     </p>
 
                     {import.meta.env.DEV && this.state.error && (
-                        <div className="bg-muted mb-6 max-w-2xl overflow-auto rounded-md p-4">
-                            <p className="font-mono text-sm text-red-600">{this.state.error.toString()}</p>
+                        <div className="bg-surface-container-high mb-6 max-w-2xl overflow-auto rounded-md p-4">
+                            <p className="text-error font-mono text-sm">{this.state.error.toString()}</p>
                             {this.state.errorInfo && (
-                                <pre className="text-muted-foreground mt-2 text-xs whitespace-pre-wrap">{this.state.errorInfo.componentStack}</pre>
+                                <pre className="text-on-surface-variant mt-2 text-xs whitespace-pre-wrap">{this.state.errorInfo.componentStack}</pre>
                             )}
                         </div>
                     )}
