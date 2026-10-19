@@ -85,7 +85,8 @@ Add application code using the existing conventions. See
 ## Upgrade Policy
 
 Read release notes and import selected changes in a dedicated branch. See
-[Upgrading](docs/UPGRADING.md).
+[Upgrading](docs/UPGRADING.md). Planned dependency upgrades are listed in
+[Status](docs/STATUS.md).
 
 ## Contributing
 

@@ -10,6 +10,9 @@ for manual changes. Write comments and documentation in plain English.
 Before changing UI, read docs/DESIGN-SYSTEM.md. Use MD3 colour roles and
 typescale classes, never Tailwind palette colours.
 
+Before a dependency upgrade, read docs/STATUS.md. It lists planned work and its
+order. Update it in the same pull request.
+
 Run focused tests, then the verification commands in README.md. Backend tests use
 `./vendor/bin/pest --parallel`. Architecture tests are included in the suite.
 Never commit environment files, credentials, or runtime state. Publishing and
